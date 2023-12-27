@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+</head>
+<body>
+    <aside>
+        <img src="{% static 'main/img/cat.png' %}" alt="logo">
+        <span class="logo">itfirst</span>
+        <h3> Навігація </h3>
+            <ul>
+                <a href="{% url 'home' %}"><li><i class="fas fa-laptop-house"></i> Головна </li></a>
+                <a href="{% url 'about' %}"><li><i class="fas fa-user-tie"></i> Про нас </li></a>
+                <a href="{% url 'news_home' %}"><li><i class="far fa-newspaper"></i> Новини </li></a>
+                <a href=""><li><i class="fas fa-address-book"></i> Контакти</li></a>
+                <li><a href="{% url 'create' %}" class="btn btn-info"><i class="fas fa-plus"></i> Додати новину</a></li>
+            </ul>
+        </aside>
+        <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
